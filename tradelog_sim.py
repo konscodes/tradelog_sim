@@ -53,7 +53,9 @@ def my_data():
     print(f'# Win: {win_number}')
     loss_number = len(df[df['Data'] < 0].index)
     print(f'# Loss: {loss_number}')
-    win_rate = win_number/trades_total
+    even_number = len(df[df['Data'] == 0].index)
+    print(f'# Even: {even_number}')
+    win_rate = win_number/trades_total if even_number == 0 else win_number/(trades_total - even_number)
     print(f'Win rate: {win_rate:.0%}')
     max_win = df['Data'].max()
     print(f'Max win: {max_win}')
@@ -69,7 +71,7 @@ def my_data():
         trades_range = len(df[df['Data'].between(lower, upper)].index)
         occurrence = trades_range/trades_total
         print(f'Range from {round(upper, 4)} to {round(lower, 4)}, and {trades_range} trades')
-        print(f'Occurrence: {occurrence}')
+        print(f'Occurrence: {occurrence:.2%}')
         range_data = {'Upper': upper, 'Lower': lower, 'Rate': occurrence}
         range_df = range_df.append(range_data, ignore_index=True)
         upper = lower
