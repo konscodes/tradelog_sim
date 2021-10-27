@@ -1,5 +1,5 @@
 # Tradelog Simulator
-
+[![Visitors](https://visitor-badge.glitch.me/badge?page_id=tradelog_sim.visitor-badge)](https://github.com/tradelog_sim)
 ### What and Why
 
 Python script ro simulate trading performance based on historical trading data. </br>
